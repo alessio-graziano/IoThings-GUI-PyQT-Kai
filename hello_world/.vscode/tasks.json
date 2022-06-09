@@ -1,0 +1,21 @@
+{
+    "tasks": [
+        {
+            "label": "prepdebug",
+            "command": "bash", 
+            "args": [
+                "prep_debug.sh",
+                "${workspaceFolderBasename}",
+                "kai.local"
+            ],
+            "type": "shell",
+            "dependsOn": ["Compile debug"],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+        },
+
+    ],
+    "version": "2.0.0"
+}
