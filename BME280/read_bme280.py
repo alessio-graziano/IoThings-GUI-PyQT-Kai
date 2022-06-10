@@ -7,7 +7,7 @@ except ImportError:
     from smbus import SMBus
 from bme280 import BME280
 
-print("""all-values.py - Read temperature, pressure, and humidity
+print("""Read temperature, pressure, and humidity
 Press Ctrl+C to exit!
 """)
 

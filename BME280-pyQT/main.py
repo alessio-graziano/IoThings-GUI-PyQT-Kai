@@ -41,13 +41,12 @@ class Ui(QtWidgets.QMainWindow):
         uic.loadUi('window.ui', self) # Load the .ui file
 
         self.thread = ReadThread(self)
-        self.thread.data_updated.connect(self.handleSerialUpdate)
+        self.thread.data_updated.connect(self.handleUpdate)
         self.thread.start()
 
         self.show() # Show the GUI
 
-    def handleSerialUpdate(self, value):
-        #print(value.temperature, value.pressure, value.humidity)
+    def handleUpdate(self, value):
         try:
             self.lcd_temperature.display(value.temperature)
             self.lcd_humidity.display(value.humidity)
@@ -55,12 +54,8 @@ class Ui(QtWidgets.QMainWindow):
         except Exception as e:
             print("Error updating display "+str(e))
 
-        #self.lcd_lineEdit.setText(value)
 
 app = QtWidgets.QApplication(sys.argv) # Create an instance of QtWidgets.QApplication
 window = Ui() # Create an instance of our class
 
-#File = open("Genetive.qss",'r')
-#qss = File.read()
-#app.setStyleSheet(qss)
 app.exec_() # Start the application

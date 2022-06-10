@@ -6,18 +6,23 @@ Codice del Workshop **GUI con EMBEDDED LINUX e PytQT su schede KAY**
 
 1. Per creare un container con l'immagine kai basta eseguire il comando:
 
-`docker run -d -it -v ~/SMLCD72-Kai:/Kai --network host --name kai-boards-sigmastar-host shinsekaisrl/kai-boards-sigmastar-host /bin/bash`
+`docker run -d -it -v ~/SMLCD-Kai:/Kai --network host --name kai-boards-host shinsekaisrl/kai-boards-sigmastar-host /bin/bash`
 
-2. Clonare il repository nella cartella
+per ottenere la shell usare
+`docker attach kai-boards-host`
+
+2. Clonare il repository nella cartella ~/SMLCD-Kai
 `git clone https://github.com/alessio-graziano/IoThings-GUI-PyQT-Kai.git`
 
 ## Hello world
+
+
 
 Per compilare dal container Docker spostarsi nella cartella hello_world ed eseguire:
 
 `arm-linux-gnueabihf-gcc hello_world.c -o hello_world`
 
-Per il debug punto punto su scheda KAI utilizzare visual studio code ed una distribuzione Kai-full
+Per il debug punto punto su scheda KAI utilizzare visual studio code con l'estensione Microsoft C/C++ ed una distribuzione Kai-full
 
 ## BME280
 
